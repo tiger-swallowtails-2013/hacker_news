@@ -1,7 +1,7 @@
 HackerNews::Application.routes.draw do
-   get '/home/index', to: "home#index"
-   get '/users/new', to: "users#new"
-   post '/users/new', to: "users#new"
+  resources :users
+  get '/home/index', to: "home#index"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
