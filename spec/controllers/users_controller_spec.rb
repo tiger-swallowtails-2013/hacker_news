@@ -22,7 +22,7 @@ describe UsersController do
     end
   end
 
-  describe "Get #create" do
+  describe "Post #create" do
     let (:valid_params) { {:user => FactoryGirl.attributes_for(:user)} }
     context "with valid attributes" do
       it "saves new user" do
