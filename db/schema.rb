@@ -23,7 +23,7 @@ end
 ActiveRecord::Schema.define(version: 1) do
 
   create_table "users", force: true do |t|
-    t.string  "name"
+    t.string  "username"
     t.string  "password"
     t.integer "posts_id"
     t.integer "comments_id"
