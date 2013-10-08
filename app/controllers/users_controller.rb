@@ -5,14 +5,23 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create(params[:user].permit(:username, :password, :first_name,
-      :last_name, :email))
-    @user = User.find_by_email(params[:user][:email])
-    redirect_to "/users/#{@user.id}"
+    @user = User.new(user_params(params))
+    if @user.save
+      redirect_to 'users#show'
+    else
+      render :new
+    end
   end
 
   def show
     @user = User.find(params[:id])
   end
+
+  private
+
+  def user_params(params)
+    params[:user].permit(:username, :password, :first_name,:last_name, :email)
+  end
+
 end
 
