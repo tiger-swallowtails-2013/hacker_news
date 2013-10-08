@@ -34,7 +34,6 @@ describe UsersController do
       it "does not save a new user" do
         valid_params[:user][:email] = nil
         invalid_params = valid_params
-        p invalid_params
         post :create, invalid_params
         response.should render_template "new"
       end

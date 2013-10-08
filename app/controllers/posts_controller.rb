@@ -12,7 +12,21 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(params[:post].permit(:title, :body, :parent_post_id))
-    redirect_to posts_path
+    @post = Post.new(post_params(params))
+    if @post.save
+      redirect_to "posts#show"
+    else
+      render :new
+    end
+  end
+
+  def show
+    @post = Post.find(params[:id])
+  end
+
+  private
+
+  def post_params(params)
+    params[:post].permit(:title, :body, :parent_post_id)
   end
 end
