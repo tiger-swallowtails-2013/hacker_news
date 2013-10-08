@@ -1,6 +1,7 @@
 <h1>Create a New Post</h1>
 
 <%= form_for @post do |f| %>
+  <p><b><%= @post.errors.full_messages %></b></p>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
