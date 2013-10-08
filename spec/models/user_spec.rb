@@ -1,15 +1,14 @@
 require 'spec_helper'
 
-
 describe User do
   let(:user1) {FactoryGirl.build(:user)}
   let(:user2) {FactoryGirl.build(:user)}
   it "has a valid factory" do
    expect(user1).to be_valid
-  end  
+  end
   it "is invalid without an email address" do
     user1.email = nil
-    expect(user1).to_not be_valid 
+    expect(user1).to_not be_valid
   end
 
   it "is invalid without a password" do
