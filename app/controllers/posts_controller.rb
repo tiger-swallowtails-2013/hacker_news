@@ -4,10 +4,12 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
-    Post.create(title: params[:title], body: params[:body])
-    redirect_to 'posts/index'
+    Post.create(params[:post].permit(:title, :body))
+    redirect_to posts
   end
+
 end
