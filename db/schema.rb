@@ -19,13 +19,15 @@ ActiveRecord::Schema.define(version: 20131007211424) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-end
-ActiveRecord::Schema.define(version: 1) do
 
   create_table "users", force: true do |t|
     t.string  "username"
     t.string  "password"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "email"
     t.integer "posts_id"
     t.integer "comments_id"
   end
+
 end
