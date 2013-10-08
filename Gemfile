@@ -40,6 +40,7 @@ end
 group :test do
   gem 'faker' 
   gem 'capybara'
+  gem 'shoulda-matchers'
 end
 
 # Use ActiveModel has_secure_password
