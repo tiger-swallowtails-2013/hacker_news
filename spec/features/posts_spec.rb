@@ -17,3 +17,19 @@ feature "post creation" do
     expect(page).to have_content("My Post")
   end
 end
+
+feature "comment creation" do
+  scenario "it is a comment and renders _comment" do
+      visit new_post_path(:yield =>"comment")
+      # render :partial => "posts/comment"
+      expect(page).to have_content("Comment")
+     end
+ end
+
+ feature "post creation" do
+  scenario "it is a post and renders _post" do
+      visit new_post_path(:yield =>"post")
+      # render :partial => "posts/post"
+      expect(page).to have_content("Post")
+     end
+ end

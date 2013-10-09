@@ -2,6 +2,9 @@
 <% @posts.each do |post| %>
   <h3> <%= post.id %> <%= post.title %> </h3>
   <p> <%= post.body %> </p>
+   <% if post.parent_post_id == post.id %>
+      <p> <%= post.title =%> </p>
+        <%end%>
   <p> <%= link_to 'Comment', new_post_path(:yield => "comment", :parent_id => post.id )%></p>
 <%end%>
 <br>
