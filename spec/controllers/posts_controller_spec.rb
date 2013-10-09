@@ -8,9 +8,17 @@ describe PostsController do
     end
   end
   describe "GET new" do
-    it "renders posts#new" do
-      get 'new'
-      response.should render_template :new
+    context "create a comment" do
+      it "renders _comment" do
+        get :new, {:yield => "comment"}
+        response.should render_template :new
+      end
+    end
+    context "create a post" do
+      it "renders _post" do
+        get :new, {:yield => "post"}
+        response.should render_template :new
+      end
     end
   end
   describe "POST create" do
@@ -29,5 +37,6 @@ describe PostsController do
         response.should render_template 'new'
       end
     end
+
   end
 end
