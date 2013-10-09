@@ -27,7 +27,7 @@ describe UsersController do
     context "with valid attributes" do
       it "saves new user" do
         post :create, valid_params
-        response.should redirect_to "users#show"
+        response.should redirect_to user_path User.last
       end
     end
     context "with invalid attributes" do

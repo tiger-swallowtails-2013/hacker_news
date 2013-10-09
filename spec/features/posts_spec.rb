@@ -6,9 +6,18 @@ feature "post creation" do
     visit new_post_path(:yield => "post")
     fill_in 'post[title]', with: 'My Post'
     fill_in 'post[body]', with: 'Here I am.'
-    click_button 'Save Post'
+    click_button 'Create Post'
     expect(page).to have_content('My Post')
   end
+
+  scenario 'with invalid title' do
+    visit new_post_path
+    fill_in 'post[title]', with: 'bad'
+    fill_in 'post[body]', with: 'A complete sentence.'
+    click_button 'Create Post'
+    expect(page).to have_content("too short")
+  end
+
   scenario 'if the post is a comment' do
     visit new_post_path(:yield => "comment")
     fill_in 'post[title]', with: 'My Post'
@@ -17,3 +26,4 @@ feature "post creation" do
     expect(page).to have_content("My Post")
   end
 end
+

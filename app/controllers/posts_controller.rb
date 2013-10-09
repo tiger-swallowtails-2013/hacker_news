@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
     if params[:yield] == "comment"
       @view = "comment"
     else
@@ -14,8 +15,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params(params))
     if @post.save
-      redirect_to "posts#show"
+      redirect_to post_path(@post)
     else
+      @view = "post"
       render :new
     end
   end
