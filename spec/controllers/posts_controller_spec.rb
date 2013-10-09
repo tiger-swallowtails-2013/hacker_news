@@ -26,7 +26,7 @@ describe PostsController do
     context "with valid params" do
       it "redirects to new posts#show" do
         post :create, valid_attributes
-        response.should redirect_to "posts#show"
+        response.should redirect_to post_path Post.last
       end
     end
     context "with invalid params" do
